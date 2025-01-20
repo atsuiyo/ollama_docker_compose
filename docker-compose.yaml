@@ -1,0 +1,15 @@
+services:
+  server:
+    image: ollama/ollama
+    container_name: ollama
+    user: "${UID}:${GID}"
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./ollama:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    restart: unless-stopped
