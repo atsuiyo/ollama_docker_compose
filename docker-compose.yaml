@@ -2,7 +2,6 @@ services:
   server:
     image: ollama/ollama
     container_name: ollama
-    user: "${UID}:${GID}"
     ports:
       - "11434:11434"
     volumes:
